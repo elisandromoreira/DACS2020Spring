@@ -1,23 +1,24 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org"
     xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
-    <head>
-        <title>Insert title here</title>
-    </head>
+    <head th:include="layout :: htmlhead"></head>
     <body>
-        <h1>Paciente</h1>
-        <table>
-            <thead>
-                <th>id</th>
-                <th>nome</th>
-            </thead>
-            <tbody>
-                <tr th:each="umpaciente : ${listapacientes}">
-                    <td th:text="${umpaciente.id}"></td>
-                    <td th:text="${umpaciente.nome}"></td>
-                </tr>
-            </tbody>
-        </table>
-        </strong>
+        <div class="container">
+			<nav th:replace="layout :: menu">(menu)</nav>
+            <h1>Paciente</h1>
+            <table class="table">
+                <thead>
+                    <th>Id</th>
+                    <th>Nome</th>
+                </thead>
+                <tbody>
+                    <tr th:each="umpaciente : ${listapacientes}">
+                        <td th:text="${umpaciente.id}"></td>
+                        <td th:text="${umpaciente.nome}"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div th:include="layout :: footer" id="footer">(footer)</div>
     </body>
 </html>
