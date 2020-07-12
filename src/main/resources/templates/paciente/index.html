@@ -6,15 +6,25 @@
         <div class="container">
 			<nav th:replace="layout :: menu">(menu)</nav>
             <h1>Paciente</h1>
+            <a style="margin-bottom: 10px;" th:href="@{/paciente/novo}" 
+				class="btn btn-primary" role="button">Novo</a>
             <table class="table">
                 <thead>
                     <th>Id</th>
                     <th>Nome</th>
+                    <th>Sexo</th>
+                    <th>Data Nascimento</th>
+                    <th><strong>AÇÕES</strong></th>
                 </thead>
                 <tbody>
                     <tr th:each="umpaciente : ${listapacientes}">
                         <td th:text="${umpaciente.id}"></td>
                         <td th:text="${umpaciente.nome}"></td>
+                        <td th:text="${umpaciente.sexo}"></td>
+                        <td th:text="${umpaciente.dataNascimento}"></td>
+                        <td>
+                            <a th:href="@{'/paciente/alterar/' + ${umpaciente.id}}" class="btn btn-primary">Alterar</a>
+                        </td>
                     </tr>
                 </tbody>
             </table>
