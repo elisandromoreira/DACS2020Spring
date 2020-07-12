@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+    xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+    <head>
+        <title>Insert title here</title>
+    </head>
+    <body>
+        <h1>Paciente</h1>
+        <table>
+            <thead>
+                <th>id</th>
+                <th>nome</th>
+            </thead>
+            <tbody>
+                <tr th:each="umpaciente : ${listapacientes}">
+                    <td th:text="${umpaciente.id}"></td>
+                    <td th:text="${umpaciente.nome}"></td>
+                </tr>
+            </tbody>
+        </table>
+        </strong>
+    </body>
+</html>
