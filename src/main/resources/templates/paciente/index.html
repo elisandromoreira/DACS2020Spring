@@ -8,7 +8,7 @@
             <h1>Paciente</h1>
             <a style="margin-bottom: 10px;" th:href="@{/paciente/novo}" 
 				class="btn btn-primary" role="button">Novo</a>
-            <table class="table">
+            <table class="table" id="pacientes">
                 <thead>
                     <th>Id</th>
                     <th>Nome</th>
@@ -24,11 +24,22 @@
                         <td th:text="${umpaciente.dataNascimento}"></td>
                         <td>
                             <a th:href="@{'/paciente/alterar/' + ${umpaciente.id}}" class="btn btn-primary">Alterar</a>
+                            <button class='btn btn-danger js-delete'
+								th:data-paciente-id="${umpaciente.id}">
+								Excluir</button>
                         </td>
                     </tr>
                 </tbody>
             </table>
         </div>
         <div th:include="layout :: footer" id="footer">(footer)</div>
+        <script type="text/javascript"> 
+
+            $(document).ready(function(){
+                bootbox.alert("Hello world!");    
+            });
+
+
+		</script>
     </body>
 </html>
