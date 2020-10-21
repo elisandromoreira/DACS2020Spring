@@ -7,7 +7,20 @@
 			<nav th:replace="layout :: menu">(menu)</nav>
             <h1>Paciente</h1>
             <a style="margin-bottom: 10px;" th:href="@{/paciente/novo}" 
-				class="btn btn-primary" role="button">Novo</a>
+                class="btn btn-primary" role="button">Novo</a>
+            
+            <form th:action="@{/paciente}">
+                <div class="form-group row">
+                    <div class="col-8">
+                        <input type="search" name="busca" class="form-control" placeholder="Pesquisar...">
+                    </div>
+                    <div class="col-4">
+                        <button type="submit" class="btn btn-outline-primary btn-block">Pesquisar</button>
+                    </div>
+                </div>
+            </form>
+
+            
             <table class="table" id="pacientes">
                 <thead>
                     <th>Id</th>

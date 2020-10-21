@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import br.univille.dacs2020.model.Paciente;
@@ -22,8 +23,13 @@ public class PacienteController {
     private PacienteService service;
 
     @GetMapping
-    public ModelAndView index(){
-        List<Paciente> listaPacientes = service.getAll();
+    public ModelAndView index(@RequestParam(required = false) String busca){
+        List<Paciente> listaPacientes = null;
+        if(busca == null) {
+            listaPacientes = service.getAll();
+        } else {
+            listaPacientes = service.getAllByNome(busca);
+        }        
         return new ModelAndView("paciente/index","listapacientes",listaPacientes);
     }
 

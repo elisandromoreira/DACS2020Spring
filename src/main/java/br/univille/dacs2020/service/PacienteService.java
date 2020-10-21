@@ -11,4 +11,5 @@ public interface PacienteService {
     void save(Paciente paciente);
     List<Paciente> getAll();
     void delete(Paciente paciente);
+    List<Paciente> getAllByNome(String nome);
 }

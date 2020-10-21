@@ -11,4 +11,6 @@ import br.univille.dacs2020.model.Paciente;
 @Repository
 public interface PacienteRepository extends JpaRepository<Paciente, Long>{
     List<Paciente> findAllByDataNascimento(Date dataNascimento);
+    List<Paciente> findAllByNomeContainsIgnoreCase(String nome);
+    
 } 
