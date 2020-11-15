@@ -1,0 +1,26 @@
+version: '2'
+
+services:
+  dacs2020:
+    depends_on:
+      - dbdacs
+    image: dacs2020:latest
+    ports:
+      - "80:80"
+    restart: always
+    environment:
+      - DB_HOST=dbdacs:3306
+      - DB_USER=bob
+      - DB_PASSWORD=bob
+      - DB_NAME=dacs2020
+      - SPRING_PROFILES_ACTIVE=prod
+  dbdacs:
+    image: mysql:5.7
+    restart: always
+   #     ports:
+   #       - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: bob
+      MYSQL_DATABASE: dacs2020
+      MYSQL_USER: bob
+      MYSQL_PASSWORD: bob
